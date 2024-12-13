@@ -1,0 +1,16 @@
+<form id="send-form">
+    <textarea id="message" placeholder="Enter your message"></textarea>
+    <input type="text" id="receiver" placeholder="Receiver's name">
+    <button type="button" onclick="sendMessage()">Send</button>
+</form>
+<script>
+function sendMessage() {
+    const message = document.getElementById("message").value;
+    const receiver = document.getElementById("receiver").value;
+    fetch('/sender', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message, receiver })
+    }).then(res => res.json()).then(console.log);
+}
+</script>

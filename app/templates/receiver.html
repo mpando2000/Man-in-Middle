@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receiver</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Message Receiver</h1>
+
+        <!-- Display incoming encrypted message -->
+        <div class="mt-4">
+            <h2>Encrypted Message</h2>
+            <p id="encryptedMessage" class="alert alert-secondary">
+                {% if encrypted_message %}
+                    {{ encrypted_message }}
+                {% else %}
+                    No encrypted message received yet.
+                {% endif %}
+            </p>
+        </div>
+
+        <!-- Display decrypted message -->
+        <div class="mt-4">
+            <h2>Decrypted Message</h2>
+            <p id="decryptedMessage" class="alert alert-success">
+                {% if decrypted_message %}
+                    {{ decrypted_message }}
+                {% else %}
+                    No message decrypted yet.
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</body>
+
+<script>
+    setTimeout(function(){
+      location.reload();
+    }, 2000); // 2000 milliseconds = 2 seconds
+</script>
+  
+
+</html>

@@ -1,0 +1,14 @@
+<form id="intercept-form">
+    <textarea id="intercept-message" placeholder="Intercepted message"></textarea>
+    <button type="button" onclick="modifyMessage()">Modify</button>
+</form>
+<script>
+function modifyMessage() {
+    const interceptedMessage = document.getElementById("intercept-message").value;
+    fetch('/intruder', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ encrypted_message: interceptedMessage })
+    }).then(res => res.json()).then(console.log);
+}
+</script>
